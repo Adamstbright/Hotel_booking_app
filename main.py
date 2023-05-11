@@ -15,12 +15,17 @@ class Hotel:
         df.to_csv("hotels.csv", index=False)
 
     def available(self):
-        """Check if the hotel is acvailable"""
+        """Check if the hotel is available"""
         availability = df.loc[df["id"] == self.hotel_id, "available"].squeeze()
         if availability == "yes":
             return True
         else:
             return False
+
+
+class SpaHotel(Hotel):
+    def book_spa_package(self):
+        pass
 
 
 class ReservationTicket:
@@ -57,10 +62,6 @@ class SecureCreditCard(CreditCard):
         else:
             return False
 
-
-class SpaHotel(Hotel):
-    def book_spa_package(self):
-        pass
 
 
 class SpaTicket:
